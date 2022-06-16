@@ -26,17 +26,20 @@ def get_seconds(today_hour, today_min, shutdown_hour, shutdown_min):
         total_seconds = total_seconds + 0 # Hours
         total_seconds = total_seconds + ((shutdown_min - today_min) * 60) # Minutes
     else:
-        total_seconds = total_seconds + ((shutdown_hour - today_hour) * 3600) # Hours
+        # Hours
+        total_seconds = total_seconds + ((shutdown_hour - today_hour) * 3600)
         hours_distance = shutdown_hour - today_hour
-        if today_min < shutdown_min: # Minutes
+        # Minutes
+        if today_min < shutdown_min:
             total_seconds = total_seconds + ((shutdown_min - today_min) * 60)
         else:
             today_rest_seconds = (60 - today_min) * 60
-            shutdown_seconds = shutdown_min * 60
-            total_seconds = (total_seconds + today_rest_seconds + shutdown_seconds) - (hours_distance * 3600)
+            shutdown_seconds = int(shutdown_min) * 60
+            total_seconds = (total_seconds + today_rest_seconds + shutdown_seconds) - 3600
 
 
     return total_seconds
+
 
 def get_shutdown_date(today, date):
 
