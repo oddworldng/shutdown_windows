@@ -73,5 +73,7 @@ try:
     os.system("shutdown /a")
 except ValueError:
     today = datetime.datetime.today()
+    today_seconds = str(today).split(":")[2].split(".")[0]
     shutdown_date = get_shutdown_date(today, shutdown)
+    shutdown_date = int(shutdown_date) - int(today_seconds)
     os.system("shutdown /s /t " + str(shutdown_date))
