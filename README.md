@@ -3,10 +3,20 @@ This project is a python script to shutdown Windows by introducing any hour in f
 
 # How to run
 
-Run `py shutdown_windows.py` in your Windows console (CMD), and type any hour in format hh:mm
+Run `py shutdown_windows.py` and type the hour `19:00` to shutdown your computer in that time.
 
 # Example
 
-Run `py shutdown_windows.py` and type the hour `19:00` to shutdown your computer in that time.
 
 <img src="img/command.png" width="100%"/>
+
+# How to cancel 
+
+Run `py shutdown_windows.py` and type `0` to abort the shutdown process.
+
+# Example
+
+<img src="img/command_abort.png" width="100%"/>
+
+
+
