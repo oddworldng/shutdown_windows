@@ -70,6 +70,7 @@ def get_shutdown_date(today, date):
 shutdown = input("A que hora quieres apagar hoy el equipo ? (Formato: hh:mm. Introduce 0, para cancelar el apagado): ")
 try:
     shutdown = int(shutdown)
+    print("[+] INFO: Se ha cancelado el proceso de apagado.")
     os.system("shutdown /a")
 except ValueError:
     today = datetime.datetime.today()
