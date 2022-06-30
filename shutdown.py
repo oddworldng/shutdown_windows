@@ -1,6 +1,7 @@
 import datetime
 import os
 
+
 def check_time(today_hour, today_min, shutdown_hour, shutdown_min):
 
     if today_hour > shutdown_hour:
@@ -23,12 +24,14 @@ def get_seconds(today_hour, today_min, shutdown_hour, shutdown_min):
 
     # Hours and minutes to seconds
     if today_hour == shutdown_hour:
-        total_seconds = total_seconds + 0 # Hours
-        total_seconds = total_seconds + ((shutdown_min - today_min) * 60) # Minutes
+        # Hours
+        total_seconds = total_seconds + 0
+        # Minutes
+        total_seconds = total_seconds + ((shutdown_min - today_min) * 60)
     else:
         # Hours
         total_seconds = total_seconds + ((shutdown_hour - today_hour) * 3600)
-        hours_distance = shutdown_hour - today_hour
+        # hours_distance = shutdown_hour - today_hour
         # Minutes
         if today_min < shutdown_min:
             total_seconds = total_seconds + ((shutdown_min - today_min) * 60)
@@ -37,16 +40,17 @@ def get_seconds(today_hour, today_min, shutdown_hour, shutdown_min):
             shutdown_seconds = int(shutdown_min) * 60
             total_seconds = (total_seconds + today_rest_seconds + shutdown_seconds) - 3600
 
-
     return total_seconds
 
 
-def get_shutdown_date(today, date):
+def get_shutdown_date(today_time, date):
 
     # Get today hour and min
-    today_time = str(today).split(" ")[1]
+    today_time = str(today_time).split(" ")[1]
     today_hour = str(today_time).split(":")[0]
     today_min = str(today_time).split(":")[1]
+    shutdown_hour = 0
+    shutdown_min = 0
 
     try:
         # Get shutdown hour and min
