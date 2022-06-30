@@ -66,7 +66,7 @@ def get_shutdown_date(today_time, date):
         print("[+] INFO: La fecha introducida es correcta.")
 
     total_seconds = get_seconds(int(today_hour), int(today_min), int(shutdown_hour), int(shutdown_min))
-    print("[+] INFO: El equipo se apagara en " + str(total_seconds) + " segundos...")
+    print("[+] INFO: El equipo se apagara en " + str(datetime.timedelta(seconds=total_seconds)) + ", en " + str(total_seconds) + " segundos...")
 
     return total_seconds
 
